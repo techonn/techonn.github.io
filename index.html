@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Onn Ding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f9f7f4;
+            --text: #1a1a1a;
+            --muted: #8a8680;
+            --subtle: #3d3d3d;
+            --accent: #b5451b;
+            --border: #dedad3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 96px 32px 128px;
+        }
+
+        /* Header */
+        header { margin-bottom: 96px; }
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .role {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .links a {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .links a:hover { color: var(--accent); }
+
+        .links .sep {
+            width: 1px;
+            height: 10px;
+            background: var(--border);
+        }
+
+        /* Section label */
+        section { margin-bottom: 80px; }
+
+        .label {
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 36px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* About */
+        .about p {
+            font-size: 0.9rem;
+            line-height: 1.95;
+            color: var(--subtle);
+        }
+
+        /* Experience */
+        .entry { margin-bottom: 44px; }
+        .entry:last-child { margin-bottom: 0; }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 2px;
+        }
+
+        .entry-org {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .entry-org .acquired {
+            font-weight: 300;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .entry-date {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .entry-role {
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .entry-desc {
+            font-size: 0.83rem;
+            color: var(--subtle);
+            line-height: 1.8;
+        }
+
+        /* Projects */
+        .project {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project:first-of-type { border-top: 1px solid var(--border); }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 4px;
+        }
+
+        .project-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .project-name a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .project-name a:hover { color: var(--accent); }
+
+        .project-year {
+            font-size: 0.7rem;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        .project-stack {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 0.83rem;
+            color: var(--subtle);
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-table {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 16px 32px;
+        }
+
+        .skill-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            padding-top: 2px;
+        }
+
+        .skill-val {
+            font-size: 0.83rem;
+            color: var(--subtle);
+            line-height: 1.75;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 112px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+        }
+
+        @media (max-width: 560px) {
+            .container { padding: 64px 20px 96px; }
+            .name { font-size: 1.3rem; }
+            .skills-table { grid-template-columns: 1fr; gap: 4px; }
+            .skill-cat { margin-top: 12px; }
+            .entry-header { flex-direction: column; gap: 2px; }
+            .project-header { flex-direction: column; gap: 2px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <div class="name">Tech Onn Ding</div>
+        <div class="role">Data Scientist &amp; Machine Learning Engineer</div>
+        <nav class="links">
+            <a href="mailto:techonnding97@gmail.com">Email</a>
+            <div class="sep"></div>
+            <a href="https://linkedin.com/in/techonnding" target="_blank">LinkedIn</a>
+            <div class="sep"></div>
+            <a href="https://github.com/techonn" target="_blank">GitHub</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="label">About</div>
+        <div class="about">
+            <p>Data scientist with a background spanning health data science, neuroscience, and management consulting. I work across the full analytical stack — from statistical modelling and machine learning to communicating findings to non-technical stakeholders. Currently building fraud detection models for financial institutions at Featurespace, acquired by Visa.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="label">Experience</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">Featurespace <span class="acquired">(acquired by Visa)</span></div>
+                <div class="entry-date">Jul 2024 - Present</div>
+            </div>
+            <div class="entry-role">Machine Learning Engineer · United Kingdom</div>
+            <div class="entry-desc">Building machine learning models for fraud detection for financial institutions.</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">Science to Data Science (S2DS)</div>
+                <div class="entry-date">Feb 2024 - Mar 2024</div>
+            </div>
+            <div class="entry-role">Data Science Fellow · United Kingdom</div>
+            <div class="entry-desc">Built a hydrogen safety chatbot using Llama 2 for the Electric Power Research Institute (EPRI). Optimised Retrieval Augmented Generation (RAG) pipelines in Python, reducing manual document review by ~50%.</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">YCP Solidiance</div>
+                <div class="entry-date">Sep 2021 - Jul 2022</div>
+            </div>
+            <div class="entry-role">Consulting Analyst · Malaysia</div>
+            <div class="entry-desc">Delivered data-driven market insights across healthcare, F&amp;B, and automotive industries. Conducted 100+ stakeholder interviews and produced client deliverables across 6 countries.</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">International Data Corporation (IDC)</div>
+                <div class="entry-date">Jul 2020 - Sep 2021</div>
+            </div>
+            <div class="entry-role">Associate Market Analyst · Malaysia</div>
+            <div class="entry-desc">Market research on Malaysia's PC monitor sector via desk research and interviews with 29 distributors. Quality-checked 10,000+ rows of market data. Published findings in IDC AP's 2020 Infographic.</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="label">Projects</div>
+
+        <div class="project">
+            <div class="project-header">
+                <div class="project-name"><a href="https://github.com/techonn/mci-anomaly-detection" target="_blank">MCI Anomaly Detection in Smart Home Data</a></div>
+                <div class="project-year">2023</div>
+            </div>
+            <div class="project-stack">Python · HMM · LSTM · GRU-Autoencoder</div>
+            <div class="project-desc">Machine learning pipeline to detect behavioural anomalies linked to Mild Cognitive Impairment using smart home sensor data. Models achieved AUC &gt;80% across aMCI and naMCI subtypes. MSc dissertation project in collaboration with Carebeans.</div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <div class="project-name">Referral to Treatment Waiting Time Inequality Analysis</div>
+                <div class="project-year">2024</div>
+            </div>
+            <div class="project-stack">Python · Kruskal-Wallis · Quantile Regression</div>
+            <div class="project-desc">Statistical analysis on ~8,000 NHS RTT records to identify inequalities in patient wait times across age, deprivation index, and ethnicity.</div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <div class="project-name">Survival Analysis for Anti-Hypertensive Medication</div>
+                <div class="project-year">2023</div>
+            </div>
+            <div class="project-stack">R · Cox Proportional Hazards · Kaplan-Meier</div>
+            <div class="project-desc">Explored the association between anti-hypertensive medication and mortality using the Framingham Heart Study dataset (3,826 observations). Optimal Cox model selected via AIC.</div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <div class="project-name">COPD Dashboard</div>
+                <div class="project-year">2022</div>
+            </div>
+            <div class="project-stack">Tableau · Public Health England · GP Geolocation Data</div>
+            <div class="project-desc">Collaborative 6-member project linking three healthcare datasets to build interactive dashboards supporting data-driven COPD management for patients and clinicians.</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="label">Skills</div>
+        <div class="skills-table">
+            <div class="skill-cat">Programming</div>
+            <div class="skill-val">Python (Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib), R, SQL</div>
+
+            <div class="skill-cat">Machine Learning</div>
+            <div class="skill-val">Classification, anomaly detection, neural networks, NLP, RAG, survival analysis</div>
+
+            <div class="skill-cat">Tools</div>
+            <div class="skill-val">Jupyter, VSCode, Tableau, Git, Linux, Excel</div>
+
+            <div class="skill-cat">Languages</div>
+            <div class="skill-val">English, Mandarin (fluent) · Cantonese, Malay (conversational)</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="label">Education</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">University of Manchester</div>
+                <div class="entry-date">2022 - 2023</div>
+            </div>
+            <div class="entry-role">MSc Health Data Science · Distinction (76%)</div>
+            <div class="entry-desc">Statistics, machine learning, clinical prediction modelling, survival analysis. Dissertation: anomaly detection in dementia behavioural patterns (75%).</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-org">King's College London</div>
+                <div class="entry-date">2015 - 2019</div>
+            </div>
+            <div class="entry-role">MSc Clinical Neuroscience · Distinction &nbsp;/&nbsp; BSc Biomedical Science · 2:1 Honours</div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Tech Onn Ding
+    </footer>
+
+</div>
+</body>
+</html>
