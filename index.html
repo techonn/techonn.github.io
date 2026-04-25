@@ -6,7 +6,7 @@
     <title>Tech Onn Ding</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #f9f7f4;
@@ -26,7 +26,7 @@
             color: var(--text);
             font-family: 'Inter', -apple-system, sans-serif;
             font-weight: 300;
-            font-size: 15px;
+            font-size: 17px;
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
@@ -52,7 +52,7 @@
             font-size: 0.75rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--muted);
+            color: #0a0a09;
             margin-bottom: 28px;
         }
 
@@ -63,6 +63,9 @@
         }
 
         .links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
             font-size: 0.72rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -70,6 +73,8 @@
             text-decoration: none;
             transition: color 0.2s;
         }
+
+        .links a svg { flex-shrink: 0; }
 
         .links a:hover { color: var(--accent); }
 
@@ -83,8 +88,9 @@
         section { margin-bottom: 80px; }
 
         .label {
-            font-size: 0.62rem;
-            letter-spacing: 0.22em;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--accent);
             margin-bottom: 36px;
@@ -121,7 +127,7 @@
 
         .entry-org {
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.01em;
         }
 
@@ -170,7 +176,7 @@
 
         .project-name {
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .project-name a {
@@ -246,20 +252,30 @@
 
     <header>
         <div class="name">Tech Onn Ding</div>
-        <div class="role">Data Scientist &amp; Machine Learning Engineer</div>
+        <div class="role">Data Scientist</div>
         <nav class="links">
-            <a href="mailto:techonnding97@gmail.com">Email</a>
+            <a href="mailto:techonnding97@gmail.com">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Email
+            </a>
             <div class="sep"></div>
-            <a href="https://linkedin.com/in/techonnding" target="_blank">LinkedIn</a>
+            <a href="https://linkedin.com/in/techonnding" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
             <div class="sep"></div>
-            <a href="https://github.com/techonn" target="_blank">GitHub</a>
+            <a href="https://github.com/techonn" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+            </a>
         </nav>
     </header>
 
     <section>
         <div class="label">About</div>
         <div class="about">
-            <p>Data scientist with a background spanning health data science, neuroscience, and management consulting. I work across the full analytical stack — from statistical modelling and machine learning to communicating findings to non-technical stakeholders. Currently building fraud detection models for financial institutions at Featurespace, acquired by Visa.</p>
+            <p>My background runs from biomedical science and clinical neuroscience through management consulting before converging in data science. I'm currently a Data Scientist at Visa building fraud detection models for financial institutions.</p>
+            <p style="margin-top: 1.1em;">What I enjoy most is digging into complex, high-dimensional data and building models that have tangible real-world impact - in fraud detection, a well-built model means fewer people losing money. That combination of technical depth, problem solving, and genuine consequence is what keeps me engaged.</p>
         </div>
     </section>
 
@@ -268,11 +284,11 @@
 
         <div class="entry">
             <div class="entry-header">
-                <div class="entry-org">Featurespace <span class="acquired">(acquired by Visa)</span></div>
+                <div class="entry-org">Featurespace (a Visa Solution)</div>
                 <div class="entry-date">Jul 2024 - Present</div>
             </div>
-            <div class="entry-role">Machine Learning Engineer · United Kingdom</div>
-            <div class="entry-desc">Building machine learning models for fraud detection for financial institutions.</div>
+            <div class="entry-role">Data Scientist · United Kingdom</div>
+            <div class="entry-desc">Building and deploying machine learning models to detect and prevent real-time financial fraud.</div>
         </div>
 
         <div class="entry">
@@ -317,30 +333,13 @@
 
         <div class="project">
             <div class="project-header">
-                <div class="project-name">Referral to Treatment Waiting Time Inequality Analysis</div>
-                <div class="project-year">2024</div>
-            </div>
-            <div class="project-stack">Python · Kruskal-Wallis · Quantile Regression</div>
-            <div class="project-desc">Statistical analysis on ~8,000 NHS RTT records to identify inequalities in patient wait times across age, deprivation index, and ethnicity.</div>
-        </div>
-
-        <div class="project">
-            <div class="project-header">
-                <div class="project-name">Survival Analysis for Anti-Hypertensive Medication</div>
+                <div class="project-name"><a href="https://github.com/techonn/NHS-dashboard" target="_blank">NHS BNF Prescribing Dashboard</a></div>
                 <div class="project-year">2023</div>
             </div>
-            <div class="project-stack">R · Cox Proportional Hazards · Kaplan-Meier</div>
-            <div class="project-desc">Explored the association between anti-hypertensive medication and mortality using the Framingham Heart Study dataset (3,826 observations). Optimal Cox model selected via AIC.</div>
+            <div class="project-stack">Python · Flask · JavaScript · SQL</div>
+            <div class="project-desc">Interactive web dashboard built on NHS practice-level prescribing data, enabling clinical commissioning groups to analyse drug prescription patterns by region, track antibiotic usage across GP practices, and filter medications by BNF code. Includes a creatinine clearance calculator as a clinical decision support tool. Built collaboratively as a 6-member scrum team.</div>
         </div>
 
-        <div class="project">
-            <div class="project-header">
-                <div class="project-name">COPD Dashboard</div>
-                <div class="project-year">2022</div>
-            </div>
-            <div class="project-stack">Tableau · Public Health England · GP Geolocation Data</div>
-            <div class="project-desc">Collaborative 6-member project linking three healthcare datasets to build interactive dashboards supporting data-driven COPD management for patients and clinicians.</div>
-        </div>
     </section>
 
     <section>
@@ -350,10 +349,10 @@
             <div class="skill-val">Python (Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib), R, SQL</div>
 
             <div class="skill-cat">Machine Learning</div>
-            <div class="skill-val">Classification, anomaly detection, neural networks, NLP, RAG, survival analysis</div>
+            <div class="skill-val">Classification, anomaly detection, fraud detection, neural networks, NLP, RAG, survival analysis, time-series modelling</div>
 
             <div class="skill-cat">Tools</div>
-            <div class="skill-val">Jupyter, VSCode, Tableau, Git, Linux, Excel</div>
+            <div class="skill-val">Git, Jupyter, VSCode, Tableau, Linux, Excel</div>
 
             <div class="skill-cat">Languages</div>
             <div class="skill-val">English, Mandarin (fluent) · Cantonese, Malay (conversational)</div>
