@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel · Tech Onn Ding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<div class="topbar">
+    <a href="/" class="home">Tech Onn Ding</a>
+    <nav>
+        <a href="/projects/">Projects</a>
+        <span class="sep"></span>
+        <a href="/experience/">Experience</a>
+        <span class="sep"></span>
+        <a href="/travel/" class="active">Travel</a>
+    </nav>
+</div>
+<div class="container">
+
+    <section>
+        <div class="label">Travel</div>
+
+        <div class="masonry">
+            <figure><img src="/assets/img/travel/DSCF5168.jpg" alt="" loading="lazy" width="1066" height="1600"></figure>
+            <figure><img src="/assets/img/travel/DSCF6021.jpg" alt="" loading="lazy" width="1600" height="1066"></figure>
+            <figure><img src="/assets/img/travel/IMG_0545.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_0916.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_1830.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_2177.jpg" alt="" loading="lazy" width="1066" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_3619.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_3692.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_4063.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_4411.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_4940.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_4999.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_5331.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_6154.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_6601.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_7064.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_7152.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_7200.jpg" alt="" loading="lazy" width="1200" height="1600"></figure>
+            <figure><img src="/assets/img/travel/IMG_7385.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_8522.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_8744.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+            <figure><img src="/assets/img/travel/IMG_9278.jpg" alt="" loading="lazy" width="1600" height="1200"></figure>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Tech Onn Ding
+    </footer>
+
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+    <img alt="">
+    <div class="lightbox-caption"></div>
+</div>
+
+<script>
+(function () {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = lightbox.querySelector('img');
+    const lbCap = lightbox.querySelector('.lightbox-caption');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+
+    function open(src, alt, caption) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCap.textContent = caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.masonry figure').forEach(fig => {
+        fig.addEventListener('click', () => {
+            const img = fig.querySelector('img');
+            const cap = fig.querySelector('figcaption');
+            open(img.src, img.alt, cap ? cap.textContent : '');
+        });
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === closeBtn) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) close();
+    });
+})();
+</script>
+
+</body>
+</html>
