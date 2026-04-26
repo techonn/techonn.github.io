@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f9f7f4;
-            --text: #1a1a1a;
-            --muted: #8a8680;
-            --subtle: #3d3d3d;
-            --accent: #b5451b;
-            --border: #dedad3;
+            --bg: #111110;
+            --text: #f2f0eb;
+            --muted: #a8a49d;
+            --subtle: #dedad2;
+            --accent: #d4653a;
+            --border: #2a2926;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,16 +23,17 @@
 
         body {
             background: var(--bg);
+            background-image: radial-gradient(ellipse at 70% 0%, rgba(212, 101, 58, 0.06) 0%, transparent 55%);
             color: var(--text);
             font-family: 'Inter', -apple-system, sans-serif;
             font-weight: 300;
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 960px;
             margin: 0 auto;
             padding: 96px 32px 128px;
         }
@@ -41,18 +42,28 @@
         header { margin-bottom: 96px; }
 
         .name {
-            font-size: 1.6rem;
-            font-weight: 400;
+            font-size: 2rem;
+            font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             margin-bottom: 6px;
         }
 
         .role {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #0a0a09;
+            margin-bottom: 14px;
+        }
+
+        .role .role-accent { color: var(--accent); }
+
+        .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--subtle);
+            max-width: 56ch;
+            line-height: 1.6;
             margin-bottom: 28px;
         }
 
@@ -66,13 +77,27 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 0.72rem;
+            font-size: 0.78rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--muted);
             text-decoration: none;
             transition: color 0.2s;
+            position: relative;
         }
+
+        .links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+
+        .links a:hover::after { width: 100%; }
 
         .links a svg { flex-shrink: 0; }
 
@@ -85,15 +110,15 @@
         }
 
         /* Section label */
-        section { margin-bottom: 80px; }
+        section { margin-bottom: 96px; }
 
         .label {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 36px;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -108,13 +133,26 @@
 
         /* About */
         .about p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.95;
             color: var(--subtle);
         }
 
+        .about .lede {
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
         /* Experience */
-        .entry { margin-bottom: 44px; }
+        .entry {
+            margin-bottom: 44px;
+            padding-left: 16px;
+            border-left: 2px solid rgba(212, 101, 58, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        .entry:hover { border-left-color: var(--accent); }
+
         .entry:last-child { margin-bottom: 0; }
 
         .entry-header {
@@ -126,7 +164,7 @@
         }
 
         .entry-org {
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: 0.01em;
         }
@@ -138,7 +176,7 @@
         }
 
         .entry-date {
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             color: var(--muted);
             letter-spacing: 0.04em;
             white-space: nowrap;
@@ -146,25 +184,89 @@
         }
 
         .entry-role {
-            font-size: 0.78rem;
+            font-size: 0.86rem;
             color: var(--muted);
             font-style: italic;
             margin-bottom: 10px;
         }
 
         .entry-desc {
-            font-size: 0.83rem;
+            font-size: 0.92rem;
             color: var(--subtle);
             line-height: 1.8;
         }
 
+        .bullets {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.92rem;
+            color: var(--subtle);
+            line-height: 1.75;
+            margin-bottom: 6px;
+        }
+
+        .bullets li:last-child { margin-bottom: 0; }
+
+        .bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 8px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        .hl {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .interests {
+            margin-top: 1.4em;
+            font-size: 0.88rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .interests::before {
+            content: '— ';
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* Present indicator */
+        .present { color: #6aaa82; }
+
+        .present::before {
+            content: '● ';
+            font-size: 0.55em;
+            vertical-align: middle;
+            animation: blink 2.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         /* Projects */
         .project {
-            padding: 24px 0;
+            padding: 24px 16px;
             border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
         }
 
         .project:first-of-type { border-top: 1px solid var(--border); }
+
+        .project:hover { background: rgba(212, 101, 58, 0.04); }
 
         .project-header {
             display: flex;
@@ -175,7 +277,7 @@
         }
 
         .project-name {
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             font-weight: 600;
         }
 
@@ -188,20 +290,20 @@
         .project-name a:hover { color: var(--accent); }
 
         .project-year {
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             color: var(--muted);
             flex-shrink: 0;
         }
 
         .project-stack {
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             color: var(--muted);
             letter-spacing: 0.04em;
             margin-bottom: 10px;
         }
 
         .project-desc {
-            font-size: 0.83rem;
+            font-size: 0.92rem;
             color: var(--subtle);
             line-height: 1.8;
         }
@@ -209,22 +311,39 @@
         /* Skills */
         .skills-table {
             display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 16px 32px;
+            grid-template-columns: 130px 1fr;
+            gap: 18px 32px;
         }
 
         .skill-cat {
-            font-size: 0.7rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--muted);
-            padding-top: 2px;
+            padding-top: 4px;
         }
 
         .skill-val {
-            font-size: 0.83rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            font-size: 0.8rem;
             color: var(--subtle);
-            line-height: 1.75;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 2px 8px;
+            letter-spacing: 0.02em;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: rgba(212, 101, 58, 0.45);
+            color: var(--text);
         }
 
         /* Footer */
@@ -232,14 +351,14 @@
             margin-top: 112px;
             padding-top: 24px;
             border-top: 1px solid var(--border);
-            font-size: 0.68rem;
+            font-size: 0.78rem;
             color: var(--muted);
             letter-spacing: 0.06em;
         }
 
         @media (max-width: 560px) {
             .container { padding: 64px 20px 96px; }
-            .name { font-size: 1.3rem; }
+            .name { font-size: 1.5rem; }
             .skills-table { grid-template-columns: 1fr; gap: 4px; }
             .skill-cat { margin-top: 12px; }
             .entry-header { flex-direction: column; gap: 2px; }
@@ -252,7 +371,8 @@
 
     <header>
         <div class="name">Tech Onn Ding</div>
-        <div class="role">Data Scientist</div>
+        <div class="role">Data Scientist <span class="role-accent">·</span> Real-Time Fraud Detection</div>
+        <p class="tagline">Building production ML systems at Visa that score payment transactions in real-time and prevent financial fraud at scale.</p>
         <nav class="links">
             <a href="mailto:techonnding97@gmail.com">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -274,8 +394,9 @@
     <section>
         <div class="label">About</div>
         <div class="about">
-            <p>My background runs from biomedical science and clinical neuroscience through management consulting before converging in data science. I'm currently a Data Scientist at Visa building fraud detection models for financial institutions.</p>
-            <p style="margin-top: 1.1em;">What I enjoy most is digging into complex, high-dimensional data and building models that have tangible real-world impact - in fraud detection, a well-built model means fewer people losing money. That combination of technical depth, problem solving, and genuine consequence is what keeps me engaged.</p>
+            <p class="lede">I build real-time fraud detection models at Visa, working with high-volume transactional data from financial institutions to prevent fraud as it happens.</p>
+            <p style="margin-top: 1.1em;">My background spans biomedical science and clinical neuroscience at King’s College London, management consulting in Southeast Asia, and an MSc in Health Data Science at Manchester. It shapes how I approach problems: comfortable with messy, high-dimensional data, focused on understanding stakeholder needs, and building models that perform reliably in production.</p>
+            <p class="interests">Off the clock: badminton, content creation, and the occasional clinical dataset for fun.</p>
         </div>
     </section>
 
@@ -285,37 +406,52 @@
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">Featurespace (a Visa Solution)</div>
-                <div class="entry-date">Jul 2024 - Present</div>
+                <div class="entry-date">Jul 2024 – <span class="present">Present</span></div>
             </div>
             <div class="entry-role">Data Scientist · United Kingdom</div>
-            <div class="entry-desc">Building and deploying machine learning models to detect and prevent real-time financial fraud.</div>
+            <ul class="bullets">
+                <li>Develop and deploy supervised ML models for <span class="hl">real-time payment fraud detection</span>, scoring transactions for financial institutions on Featurespace's ARIC platform.</li>
+                <li>Own the model lifecycle on client engagements - feature engineering on transactional data, training, evaluation against <span class="hl">imbalanced fraud labels</span>, and production handover.</li>
+                <li>Translate model performance into client-facing metrics (value-detection rate, false-positive ratio) that map directly to fraud losses prevented.</li>
+            </ul>
         </div>
 
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">Science to Data Science (S2DS)</div>
-                <div class="entry-date">Feb 2024 - Mar 2024</div>
+                <div class="entry-date">Feb 2024 – Mar 2024</div>
             </div>
             <div class="entry-role">Data Science Fellow · United Kingdom</div>
-            <div class="entry-desc">Built a hydrogen safety chatbot using Llama 2 for the Electric Power Research Institute (EPRI). Optimised Retrieval Augmented Generation (RAG) pipelines in Python, reducing manual document review by ~50%.</div>
+            <ul class="bullets">
+                <li>Built a hydrogen-safety chatbot for the <span class="hl">Electric Power Research Institute (EPRI)</span> using Llama 2 with a Retrieval Augmented Generation (RAG) backend.</li>
+                <li>Tuned chunking, embedding, and retrieval strategies in Python - cut manual document review by <span class="hl">~50%</span>.</li>
+                <li>Delivered an end-to-end working prototype within a five-week sprint.</li>
+            </ul>
         </div>
 
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">YCP Solidiance</div>
-                <div class="entry-date">Sep 2021 - Jul 2022</div>
+                <div class="entry-date">Sep 2021 – Jul 2022</div>
             </div>
             <div class="entry-role">Consulting Analyst · Malaysia</div>
-            <div class="entry-desc">Delivered data-driven market insights across healthcare, F&amp;B, and automotive industries. Conducted 100+ stakeholder interviews and produced client deliverables across 6 countries.</div>
+            <ul class="bullets">
+                <li>Delivered market-entry and growth-strategy work across healthcare, F&amp;B, and automotive for clients in <span class="hl">6 countries</span>.</li>
+                <li>Ran <span class="hl">100+ expert interviews</span> and turned the raw transcripts into sized markets, competitor maps, and client-ready strategy decks.</li>
+            </ul>
         </div>
 
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">International Data Corporation (IDC)</div>
-                <div class="entry-date">Jul 2020 - Sep 2021</div>
+                <div class="entry-date">Jul 2020 – Sep 2021</div>
             </div>
             <div class="entry-role">Associate Market Analyst · Malaysia</div>
-            <div class="entry-desc">Market research on Malaysia's PC monitor sector via desk research and interviews with 29 distributors. Quality-checked 10,000+ rows of market data. Published findings in IDC AP's 2020 Infographic.</div>
+            <ul class="bullets">
+                <li>Owned Malaysia's PC monitor tracker - desk research plus interviews with <span class="hl">29 distributors</span> covering the full vendor landscape.</li>
+                <li>Quality-checked <span class="hl">10,000+ rows</span> of regional market data feeding IDC AP's quarterly trackers.</li>
+                <li>Findings published in <span class="hl">IDC AP's 2020 Infographic</span>.</li>
+            </ul>
         </div>
     </section>
 
@@ -346,16 +482,46 @@
         <div class="label">Skills</div>
         <div class="skills-table">
             <div class="skill-cat">Programming</div>
-            <div class="skill-val">Python (Pandas, NumPy, Scikit-learn, PyTorch, Matplotlib), R, SQL</div>
+            <div class="skill-val">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">SQL</span>
+            </div>
 
             <div class="skill-cat">Machine Learning</div>
-            <div class="skill-val">Classification, anomaly detection, fraud detection, neural networks, NLP, RAG, survival analysis, time-series modelling</div>
+            <div class="skill-val">
+                <span class="skill-tag">Classification</span>
+                <span class="skill-tag">Anomaly Detection</span>
+                <span class="skill-tag">Fraud Detection</span>
+                <span class="skill-tag">Neural Networks</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">RAG</span>
+                <span class="skill-tag">Survival Analysis</span>
+                <span class="skill-tag">Time-Series</span>
+            </div>
 
             <div class="skill-cat">Tools</div>
-            <div class="skill-val">Git, Jupyter, VSCode, Tableau, Linux, Excel</div>
+            <div class="skill-val">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Jupyter</span>
+                <span class="skill-tag">VSCode</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Excel</span>
+            </div>
 
             <div class="skill-cat">Languages</div>
-            <div class="skill-val">English, Mandarin (fluent) · Cantonese, Malay (conversational)</div>
+            <div class="skill-val">
+                <span class="skill-tag">English</span>
+                <span class="skill-tag">Mandarin (Fluent)</span>
+                <span class="skill-tag">Cantonese (Conv.)</span>
+                <span class="skill-tag">Malay (Conv.)</span>
+            </div>
         </div>
     </section>
 
@@ -365,7 +531,7 @@
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">University of Manchester</div>
-                <div class="entry-date">2022 - 2023</div>
+                <div class="entry-date">2022 – 2023</div>
             </div>
             <div class="entry-role">MSc Health Data Science · Distinction (76%)</div>
             <div class="entry-desc">Statistics, machine learning, clinical prediction modelling, survival analysis. Dissertation: anomaly detection in dementia behavioural patterns (75%).</div>
@@ -374,7 +540,7 @@
         <div class="entry">
             <div class="entry-header">
                 <div class="entry-org">King's College London</div>
-                <div class="entry-date">2015 - 2019</div>
+                <div class="entry-date">2015 – 2019</div>
             </div>
             <div class="entry-role">MSc Clinical Neuroscience · Distinction &nbsp;/&nbsp; BSc Biomedical Science · 2:1 Honours</div>
         </div>
