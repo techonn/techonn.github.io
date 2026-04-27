@@ -316,8 +316,8 @@ section { margin-bottom: 96px; }
 }
 
 .header-portrait {
-    width: 160px;
-    height: 160px;
+    width: 145px;
+    height: 145px;
     border-radius: 50%;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.04);
@@ -332,14 +332,14 @@ section { margin-bottom: 96px; }
 }
 
 .header-portraits .header-portrait:nth-child(2) img {
-    transform: scale(1.5) translateY(-12%);
+    transform: scale(1.5) translate(3%, -22%);
     transform-origin: center;
 }
 
 @media (max-width: 720px) {
     .header-row { flex-direction: column-reverse; gap: 24px; align-items: flex-start; }
     .header-portraits { flex-direction: row; justify-content: flex-start; gap: 12px; margin-top: 0; }
-    .header-portrait { width: 100px; height: 100px; }
+    .header-portrait { width: 88px; height: 88px; }
 }
 
 /* "More on GitHub" footnote on projects page */
